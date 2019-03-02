@@ -48,7 +48,7 @@ For example: unable to display lyrics, can not click  singer / song  Name to jum
 
 Old:
 
-![1](D:/Workspace/CloudMusicHTMLPlayer/NeteaseCloudMusicHTMLPlayer/readme/1.png)
+![1](./readme/1.png)
 
 New:
 
