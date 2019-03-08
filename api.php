@@ -13,6 +13,11 @@ $API = new Meting('netease');
 $API->cookie(getParam('cookie'));    // Cookie可以自定义
 
 /*************前端功能******************/
+/**
+ * 处理歌手信息
+ * @param $info
+ * @return string
+ */
 function formatsinger($info){
     $first=true;
     $things=$info['songs'][0]['ar'];
@@ -26,7 +31,7 @@ function formatsinger($info){
             $temp=' / <a href="https://music.163.com/#/artist?id='.$value['id'].'">'.$value['name'].'</a>';
         }
     }
-    echo $temp;
+    return $temp;
 }
 /************主要功能*******************/
 

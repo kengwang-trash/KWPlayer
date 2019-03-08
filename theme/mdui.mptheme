@@ -1,0 +1,57 @@
+<!-- Netease Player includes-->
+<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.2/css/mdui.min.css">
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.2/js/mdui.min.js"></script>
+<style>
+    a {
+        border: none !important;
+        text-decoration:none !important;
+        color:#FFFFFF !important;
+    }
+</style>
+<script>
+    function toggle() {
+        var audio=document.getElementByID("audio");
+        var icon=document.getElementByID("action");
+        var isplay={isautoplay};
+        if (isplay){
+            audio.pause();
+            isplay=false;
+            icon.interHTML="pause"
+        }else{
+            audio.play();
+            isplay=true;
+            icon.interHTML="play_arrow"
+        }
+    }
+
+</script>
+<!-- Lyric Shows -->
+<!-- Player Start -->
+<div id="OnlinePlayer" class="mdui-card">
+    <div class="mdui-card-media">
+        <img src="{picurl}" onclick="location='{albumurl}'"/>
+        <div class="mdui-card-media-covered mdui-card-media-covered-top">
+            <div class="mdui-card-menu">
+                <img src="https://f.ydr.me/music.163.com/">
+            </div>
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title link" style="color:#FFFFFF">
+                    <a href="{ncurl}" target="_blank">{musicname}</a>
+                </div>
+                <div class="mdui-card-primary-subtitle link" style="color:#FFFFFF">
+                    {singer}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+
+
+        <audio id="audio" preload="auto">
+            <source src="{musicurl}" type="audio/mpeg" />
+        </audio>
+    </div>
+    <div class="mdui-card-actions">
+        <i id="action" onclick="toggle()" class="mdui-icon material-icons">play_arrow</i>
+    </div>
+</div>

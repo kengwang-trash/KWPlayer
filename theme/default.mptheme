@@ -1,0 +1,27 @@
+<!-- Netease Player includes-->
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+<style>
+    a{
+        border: none !important;
+    }
+
+</style>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<!-- Lyric Shows -->
+
+<!-- Player Start -->
+<div id="OnlinePlayer" class="card">
+    <div class="card-header"><img src="https://f.ydr.me/music.163.com/">&nbsp;&nbsp;&nbsp;&nbsp;<a href="{ncurl}" target="_blank">{musicname}</a>&nbsp;&nbsp;-&nbsp;&nbsp;{singer}</div>
+    <div class="card-body">
+        <img src="{picurl}" onclick="location='https://music.163.com/#/album?id={albumurl}'">
+        <audio id="audio" preload="auto" >
+            <source src="{musicurl}" type="audio/mpeg"/>
+            <track src="{lrcurl}">
+        </audio>
+    </div>
+    <div class="card-footer">
+
+    </div>
+</div>

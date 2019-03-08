@@ -5,8 +5,12 @@
  * Date: 2019/3/2
  * Time: 20:55
  */
+
+//屏蔽报错
 error_reporting(E_ALL ^ E_NOTICE);
+//引用到API
 include 'api.php';
+/************ 预请求音乐 *********/
 //获取id
 $music_id=$_GET['id'];
 //获取链接地址
@@ -15,78 +19,35 @@ $url=json_decode(GetMusicUrl($music_id),true)['data'][0]['url'];
 $info=json_decode(GetMusicInfo($music_id),true);
 //获取歌曲封面
 $pic=$info['songs'][0]['al']['picUrl'];
-//echo "<pre>";
-//var_dump($url);
-//echo "</pre>";
-//exit;
-//var_dump($url);
-//var_dump($info);
-
+/* 调试代码
+echo "<pre>";
+var_dump($url);
+echo "</pre>";
+exit;
+var_dump($url);
+var_dump($info);
+*/
+/************ 获取样式主题并且处理 *********/
+//获取用户请求的主题
+if (!isset($_GET['theme'])) $theme='default'; else $theme=$_GET['theme'];
+//获取是否存在该主题
+$all=file_get_contents('./theme/'.$theme.'.mptheme');
+if ($all==false){
+    $all=file_get_contents('./theme/default.mptheme');
+}
+//替换消息
+$all=str_replace('{audio}','<audio id="audio" src="'.$url.'">',$all);
+$all=str_replace('{musicurl}',$url,$all);
+$all=str_replace('{picurl}',$pic,$all);
+$all=str_replace('{singer}',formatsinger($info),$all);
+$all=str_replace('{musicname}',$info['songs']['0']['name'],$all);
+$all=str_replace('{musicid}',$music_id,$all);
+$all=str_replace('{albumid}',$info['songs'][0]['al']['id'],$all);
+$all=str_replace('{albumname}',$info['songs'][0]['al']['name'],$all);
+$all=str_replace('{lrcurl}',"lyric.php?id=$music_id",$all);
+$all=str_replace('{ncurl}',"https://music.163.com/#/song?id=$music_id",$all);
+$alid=$info['songs'][0]['al']['id'];
+$all=str_replace('{albumurl}',"https://music.163.com/#/album?id=$alid",$all);
+$all=str_replace('{isautoplay}',$_GET['autoplay'],$all);
+echo $all;
 ?>
-<!-- Netease Player includes-->
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
-<style>
-    a{
-        border: none !important;
-    }
-    #div_lrc {
-        position: absolute;
-        padding-top: 0px;
-        left: 28%;
-        top: 300px;
-        width:50%;
-        transition: top .5s;
-        margin: 0 auto;
-
-    }
-    .div_DisLrc {
-        overflow: hidden;
-        color:#b1abab;
-        width: 70%;
-        height: 600px;
-        position: relative;
-        margin: 0 auto;
-
-    }
-
-    #audio {
-        width: 100%;
-    }
-
-    .div_audio {
-        width: 50%;
-        margin: 0 auto;
-    }
-
-    .div_but {
-        position: absolute;
-        font-size: 26px;
-        font-weight: 900;
-        top: 40%;
-        right: 0%;
-    }
-
-    .div_but p {
-        cursor: pointer;
-    }
-
-</style>
-<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
-<script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-<!-- Lyric Shows -->
-
-<!-- Player Start -->
-<div id="OnlinePlayer" class="card">
-    <div class="card-header"><img src="https://f.ydr.me/music.163.com/">&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://music.163.com/#/song?id=<?php echo $music_id; ?>" target="_blank"><?php echo $info['songs']['0']['name']; ?></a>&nbsp;&nbsp;-&nbsp;&nbsp;<?php formatsinger($info); ?></div>
-    <div class="card-body">
-        <img src="<?php echo $pic ?>" onclick="location='https://music.163.com/#/album?id=<?php echo $info['songs'][0]['al']['id']; ?>'">
-            <audio id="audio" controls="controls" preload="auto" >
-                <source src="<?php echo $url; ?>" type="audio/mpeg"/>
-                <track src="lyric.php?id=<?php echo $music_id; ?>">
-            </audio>
-    </div>
-    <div class="card-footer">
-                
-    </div>
-</div>
