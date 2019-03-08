@@ -1,4 +1,4 @@
-# NeteaseCloudMusicHTMLPlayer
+# MPlayer
 
 ## Chinese 简体中文
 
@@ -18,7 +18,7 @@
 
 
 
-**设计中**
+**多种主题,正在设计**
 
 
 
@@ -54,7 +54,7 @@ New:
 
 
 
-**Still Designing**
+**A Lot Of Themes,Still Designing**
 
 
 
