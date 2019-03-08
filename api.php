@@ -9,8 +9,9 @@
 require_once 'meting.php';
 use Metowolf\Meting;
 //调用API并默认为网易云音乐
+$cookie='';//假如遇到某些限制可以填入你的cookie
 $API = new Meting('netease');
-$API->cookie(getParam('cookie'));    // Cookie可以自定义
+$API->cookie($cookie);    // Cookie可以自定义
 
 /*************前端功能******************/
 /**
