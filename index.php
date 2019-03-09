@@ -113,7 +113,11 @@ $themeinfo = $res->fetchArray(SQLITE3_ASSOC);
         var qian = "<iframe src=\"https://mplayer.tysv.top/show.php?id=";
         var hou = "\"></iframe>";
         $("#code").val(qian + id + hou);
-
+        $.get('/api/api.php?fun=musicname&p=' + id, function (data, status) {
+            mdui.snackbar({
+                message: "当前ID: " + id + " 对应歌曲: " + data
+            });
+        })
     }
 </script>
 </html>

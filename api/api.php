@@ -5,6 +5,8 @@
  * Date: 2019/3/2
  * Time: 21:00
  */
+
+error_reporting(E_ALL ^ E_NOTICE);
 //引用MeTing
 require_once 'meting.php';
 use Metowolf\Meting;
@@ -12,6 +14,23 @@ use Metowolf\Meting;
 $cookie='';//假如遇到某些限制可以填入你的cookie
 $API = new Meting('netease');
 $API->cookie($cookie);    // Cookie可以自定义
+
+/************* 调用 ********************/
+$function = $_GET['fun'];
+$p = $_GET['p'];
+switch ($function) {
+    case 'musicname':
+        $a = json_decode(GetMusicInfo($p), true);
+        echo $a['songs']['0']['name'];
+        break;
+
+    default:
+        echo $function($p);
+        break;
+}
+
+
+
 
 /*************前端功能******************/
 /**
