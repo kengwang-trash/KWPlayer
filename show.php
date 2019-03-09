@@ -9,7 +9,7 @@
 //屏蔽报错
 error_reporting(E_ALL ^ E_NOTICE);
 //引用到API
-include 'api.php';
+include 'api/api.php';
 /************ 预请求音乐 *********/
 //获取id
 $music_id=$_GET['id'];

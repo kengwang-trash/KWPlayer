@@ -1,0 +1,47 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: #fff
+}
+
+#bgcontainer {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+#bgoutput {
+    width: 100vw;
+    height: 100vh;
+}
+
+.head {
+    top: 20vh;
+}
+
+.first {
+
+    text-align: center;
+}
+
+.web-title {
+    max-width: 90%;
+    -webkit-animation: fadeIn 1s linear;
+    animation: fadeIn 1s linear;
+    font-size: 300%;
+    font-weight: bold;
+}
+
+.first > p {
+    font-size: 17px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    -webkit-animation: dropIn 1s linear;
+    animation: dropIn 1s linear;
+}

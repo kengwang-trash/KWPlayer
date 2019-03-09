@@ -24,7 +24,6 @@ function formatsinger($info){
     $things=$info['songs'][0]['ar'];
     //print_r($things);
     foreach ($things as $value){
-        $first=true;
         if($first){
             $temp='<a href="https://music.163.com/#/artist?id='.$value['id'].'">'.$value['name'].'</a>';
             $first=false;
