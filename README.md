@@ -1,71 +1,63 @@
-# MPlayer
+# 前言
 
-## Chinese 简体中文
+欢迎使用MPlayer！感谢您对于MPlayer的信任与支持！您的引用就是我开发的动力。此项目不谋利，只是为了让更多网站，更多站长方便，快捷，舒适的使用在线外链播放器
 
-作者又开了一个新坑:网易云音乐外链播放器!调用了一些个网易云的API.
+# 简介
 
-外链播放器也是网易的一个独家特长,也是备受追捧的一个东西,但是仍然有许多不尽人意的地方
+这是由Kengwang开发的一款HTML在线播放器组件，支持通过引用方式进行使用的在线播放器。开源，简洁，免费，实用是开发的宗旨。
 
-比如说:无法显示歌词,不能点击歌手/歌曲跳转到网易云音乐相关信息......
+# 使用
 
-### 风格
+你可以通过很简单的方式进行引用
 
-旧版外链播放器:
+ ```
+<iframe src="https://mplayer.tysv.top/show.php?id=网易云音乐歌曲ID"></iframe>
+```
 
-![1](./readme/1.png)
+ **域名正在处理中，暂时无法引用** 
 
-新版外链播放器:
+便可以使用默认的主题风格加入到您的网站当中，可以自己随意调整大小，高低，位置
 
+# 主题风格
 
+可在iframe引用的网站加上参数 `theme=主题名称`
 
-**多种主题,正在设计**
+例如:
 
+```
+<iframe src="https://mplayer.tysv.top/show.php?id=网易云音乐歌曲ID&theme=主题名称"></iframe>
+```
 
+比如添加`&theme=mdui`
 
-### 主要实现
+目前作者正在写default(BootStrap)和mdui
 
-1. 更多风格
-2. **可以显示歌词**
-3. 可以点击歌曲名/歌手名在新页面跳转到网易云相关链接
+ **展示网站正在建设** 
 
+# 特色功能(带 * 为未开发)
 
+1.歌曲时间记忆*
 
-### 最后一句话
+  很多在线播放器每到刷新或跳转的时候总会从头播放，用户只能听到前面的一小段，总会产生听腻+烦躁，影响用户体验，本来想用背景音乐吸引却产生了负面效果......
+   本播放器拥有歌曲时间记忆功能，3秒为一次记忆(需要写入和读取Cookie)，每次刷新自动从记忆点播放，开启本功能可以通过添加 `rmtime=true` 来开启
 
-作者还是个学生党,可能学习比较紧张,也只有周末一点时间可以写代码,这个项目可能会半途而废.但是也希望有人可以接着做下去,所以欢迎Fork!
+注:该功能未实现！
 
-## English
+2.歌单播放功能*
 
-**This is a translate text by Google Translator**
+歌单是网易云音乐的特色功能，很多歌单包含了一些好听的歌曲，但是分开听没有感觉，合起来听才ojbk。所以推出歌单播放功能，可以加入参数`list=歌单ID` (如果有id=音乐id，将优先使用id，忽略list)，播放器将记忆播放歌曲(可与播放时间同时使用)
 
-The author has opened a new resp.  Netease cloud music chain player! It has called a few Netease cloud music API.
+3.浮动歌词*
 
-The external chain player is also an exclusive specialty of Netease, and it is also a highly sought after thing, but there are still many unsatisfactory thing.
+(感谢@pluginkers 的建议)
+和电脑一样，卡拉OK式的歌词，可以自由开关
 
-For example: unable to display lyrics, can not click  singer / song  Name to jump to Netease cloud music related information...
+# 反馈或建议
 
-### Style
+QQ:1136772134
 
-Old:
+邮箱:1136772134@qq.com
 
-![1](./readme/1.png)
+个人博客:https://blog.tysv.top
 
-New:
-
-
-
-**A Lot Of Themes,Still Designing**
-
-
-
-### Main realization
-
-1. More style
-2. **Can display lyrics**
-3. You can click on the song name/singer name to jump to the NetEase cloud music related link on the new page.
-
-
-
-### Last but not least
-
-The author is still a student. It may be a bit nervous to learn. It is only a little time to write code on the weekend. This project may be abandoned halfway. But I hope someone can continue to do so, so welcome to Fork!
+也可以在Github上发Issue，不常翻
