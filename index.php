@@ -71,7 +71,7 @@ $themeinfo = $res->fetchArray(SQLITE3_ASSOC);
                     <br><br>
                     <div class="first">
                         <p>开源,强大,简单,实用的外链播放器</p>
-                        <div class="web-title">&nbsp;&nbsp;&nbsp;MPlayer</div>
+                        <div class="web-title">&nbsp;&nbsp;&nbsp;KPlayer</div>
                         <br><br>
                         <hr>
                         <br><br>
@@ -110,10 +110,10 @@ $themeinfo = $res->fetchArray(SQLITE3_ASSOC);
 
     function changed() {
         var id = $("#mid").val();
-        var qian = "<iframe src=\"https://mplayer.tysv.top/show.php?id=";
+        var qian = "<iframe src=\"https://kplayer.tysv.top/show.php?id=";
         var hou = "\"></iframe>";
         $("#code").val(qian + id + hou);
-        $.get('/api/api.php?fun=musicname&p=' + id, function (data, status) {
+        $.get('/api/api.php?fun=musicname&p=' + id, function (data) {
             mdui.snackbar({
                 message: "当前ID: " + id + " 对应歌曲: " + data
             });
