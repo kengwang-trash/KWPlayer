@@ -1,11 +1,16 @@
 <!-- Netease Player includes-->
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
 <style>
-    a{
+    a {
         border: none !important;
     }
 
 </style>
+<script>
+    if (document.body.scrollWidth < 700) {
+        document.getElementById('info').style.display = 'none';
+    }
+</script>
 <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
@@ -13,15 +18,18 @@
 
 <!-- Player Start -->
 <div id="OnlinePlayer" class="card">
-    <div class="card-header"><img src="https://f.ydr.me/music.163.com/">&nbsp;&nbsp;&nbsp;&nbsp;<a href="{ncurl}" target="_blank">{musicname}</a>&nbsp;&nbsp;-&nbsp;&nbsp;{singer}</div>
-    <div class="card-body">
-        <img src="{picurl}" onclick="location='https://music.163.com/#/album?id={albumurl}'">
-        <audio id="audio" preload="auto" >
+    <div class="card-header" style="padding: unset !important; position:relative; height: 20vh;"><img
+            style="position:absolute;" src="https://f.ydr.me/music.163.com/" height="100%"
+            width="auto">&nbsp;&nbsp;&nbsp;&nbsp;
+        <div style="font-size: 13vh; float: right;">
+            <a id="info" href="{ncurl}" target="_blank">{musicname}</a>&nbsp;&nbsp;-&nbsp;&nbsp;{singer}
+        </div>
+    </div>
+    <div class="card-body" style="padding: unset !important;">
+        <img width="25%" height="auto" src="{picurl}" onclick="location='{albumurl}'">
+        <audio id="audio" preload="auto">
             <source src="{musicurl}" type="audio/mpeg"/>
             <track src="{lrcurl}">
         </audio>
-    </div>
-    <div class="card-footer">
-
     </div>
 </div>
