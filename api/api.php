@@ -30,7 +30,7 @@ if (isset($_GET['fun'])) {
                 break;
 
             default:
-                echo $function($p);
+                echo 'Function: '.$_GET['fun'].' doesn\'t exist!';
                 break;
         }
     } else {
