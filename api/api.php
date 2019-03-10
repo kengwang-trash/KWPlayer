@@ -18,18 +18,23 @@ $API = new Meting('netease');
 $API->cookie($cookie);    // Cookie可以自定义
 
 /************* 调用 ********************/
-if (isset($_GET['fun'])) {
-    $function = $_GET['fun'];
-    $p = $_GET['p'];
-    switch ($function) {
-        case 'musicname':
-            $a = json_decode(GetMusicInfo($p), true);
-            echo $a['songs']['0']['name'];
-            break;
 
-        default:
-            echo $function($p);
-            break;
+if (isset($_GET['fun'])) {
+    if (function_exists($_GET['fun'])) {
+        $function = $_GET['fun'];
+        $p = $_GET['p'];
+        switch ($function) {
+            case 'musicname':
+                $a = json_decode(GetMusicInfo($p), true);
+                echo $a['songs']['0']['name'];
+                break;
+
+            default:
+                echo $function($p);
+                break;
+        }
+    } else {
+        echo 'Function: '.$_GET['fun'].' doesn\'t exist!';
     }
 }
 
@@ -45,6 +50,7 @@ function formatsinger($info)
     $first = true;
     $things = $info['songs'][0]['ar'];
     //print_r($things);
+    $temp = '';
     foreach ($things as $value) {
         if ($first) {
             $temp = '<a href="https://music.163.com/#/artist?id='.$value['id'].'">'.$value['name'].'</a>';

@@ -34,7 +34,7 @@ $themeinfo = $res->fetchArray(SQLITE3_ASSOC);
     <script src="https://cdn.bootcss.com/mdui/0.4.2/js/mdui.js"></script>
     <script src="https://cdn.bootcss.com/mdui/0.4.2/js/mdui.min.js"></script>
     <!-- Things -->
-    <title>MPlayer - 开源的在线组件播放器</title>
+    <title>KPlayer - 开源的在线组件播放器</title>
     <!-- 背景 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
