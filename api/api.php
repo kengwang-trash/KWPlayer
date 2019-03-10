@@ -9,27 +9,29 @@
 error_reporting(E_ALL ^ E_NOTICE);
 //引用MeTing
 require_once 'meting.php';
+
 use Metowolf\Meting;
+
 //调用API并默认为网易云音乐
-$cookie='';//假如遇到某些限制可以填入你的cookie
+$cookie = '';//假如遇到某些限制可以填入你的cookie
 $API = new Meting('netease');
 $API->cookie($cookie);    // Cookie可以自定义
 
 /************* 调用 ********************/
-$function = $_GET['fun'];
-$p = $_GET['p'];
-switch ($function) {
-    case 'musicname':
-        $a = json_decode(GetMusicInfo($p), true);
-        echo $a['songs']['0']['name'];
-        break;
+if (isset($_GET['fun'])) {
+    $function = $_GET['fun'];
+    $p = $_GET['p'];
+    switch ($function) {
+        case 'musicname':
+            $a = json_decode(GetMusicInfo($p), true);
+            echo $a['songs']['0']['name'];
+            break;
 
-    default:
-        echo $function($p);
-        break;
+        default:
+            echo $function($p);
+            break;
+    }
 }
-
-
 
 
 /*************前端功能******************/
@@ -38,20 +40,22 @@ switch ($function) {
  * @param $info
  * @return string
  */
-function formatsinger($info){
-    $first=true;
-    $things=$info['songs'][0]['ar'];
+function formatsinger($info)
+{
+    $first = true;
+    $things = $info['songs'][0]['ar'];
     //print_r($things);
-    foreach ($things as $value){
-        if($first){
-            $temp='<a href="https://music.163.com/#/artist?id='.$value['id'].'">'.$value['name'].'</a>';
-            $first=false;
-        }else{
-            $temp=' / <a href="https://music.163.com/#/artist?id='.$value['id'].'">'.$value['name'].'</a>';
+    foreach ($things as $value) {
+        if ($first) {
+            $temp = '<a href="https://music.163.com/#/artist?id='.$value['id'].'">'.$value['name'].'</a>';
+            $first = false;
+        } else {
+            $temp = ' / <a href="https://music.163.com/#/artist?id='.$value['id'].'">'.$value['name'].'</a>';
         }
     }
     return $temp;
 }
+
 /************主要功能*******************/
 
 /**
@@ -59,18 +63,19 @@ function formatsinger($info){
  * @param $id string 歌曲ID
  * @return string JSON
  */
-function GetLyric($id){
+function GetLyric($id)
+{
     global $API;
-    if(defined('CACHE_PATH')) {
+    if (defined('CACHE_PATH')) {
         $cache = CACHE_PATH.'netease'.'_'.'lyric'.'_'.$id.'.json';
 
-        if(file_exists($cache)) {   // 缓存存在，则读取缓存
+        if (file_exists($cache)) {   // 缓存存在，则读取缓存
             $data = file_get_contents($cache);
         } else {
             $data = $API->lyric($id);
 
             // 只缓存链接获取成功的歌曲
-            if(json_decode($data)->lyric !== '') {
+            if (json_decode($data)->lyric !== '') {
                 file_put_contents($cache, $data);
             }
         }
@@ -88,7 +93,8 @@ function GetLyric($id){
  * @return false|mixed|string 链接
  */
 
-function GetMusicUrl($id){
+function GetMusicUrl($id)
+{
     global $API;
 
     $data = $API->url($id);
@@ -98,15 +104,15 @@ function GetMusicUrl($id){
 }
 
 
-
 /**
  * 获取歌曲详情
  * @param $id string 歌曲ID
  * @return false|mixed|string
  */
-function GetMusicInfo($id){
+function GetMusicInfo($id)
+{
     global $API;
-    $data=$API->song($id);
+    $data = $API->song($id);
     return $data;
 }
 
@@ -118,7 +124,7 @@ function GetMusicInfo($id){
  * @param $default string 默认值
  * @return string 获取到的内容（没有则为默认值）
  */
-function getParam($key, $default='')
+function getParam($key, $default = '')
 {
     return trim($key && is_string($key) ? (isset($_POST[$key]) ? $_POST[$key] : (isset($_GET[$key]) ? $_GET[$key] : $default)) : $default);
 }
