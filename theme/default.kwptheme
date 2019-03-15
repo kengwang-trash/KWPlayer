@@ -1,4 +1,4 @@
-<!-- Netease Player includes-->
+<!-- KWPlayer Player includes-->
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
 <style>
     a {
@@ -7,16 +7,42 @@
 
 </style>
 <script>
-    if (document.body.scrollWidth < 700) {
-        document.getElementById('info').style.display = 'none';
+    var playiconclass = "glyphicon glyphicon-play";
+    var pauseiconclass = "glyphicon glyphicon-pause";
+    if ({autoplay}) {
+        var audio = document.getElementByID("audio");
+        audio.play();
+        judgeplay();
     }
+
+    function judgeplay() {
+        var audio = document.getElementByID("audio");
+        var playicon = document.getElementById("playicon");
+        if (audio.paused) {
+            playicon.className = playiconclass;
+        } else {
+            playicon.className = pauseiconclass;
+        }
+    }
+
+    function toggleplay() {
+        var audio = document.getElementById("audio");
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+        judgeplay();
+    }
+
+    judgeplay();
 </script>
 <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-<!-- Lyric Shows -->
+<!-- KWPlayer Lyric Shows -->
 
-<!-- Player Start -->
+<!-- KWPlayer Player Start -->
 <div id="OnlinePlayer" class="card">
     <div class="card-header" style="padding: unset !important; position:relative; height: 20vh;"><img
             style="position:absolute;" src="https://f.ydr.me/music.163.com/" height="100%"
@@ -27,9 +53,10 @@
     </div>
     <div class="card-body" style="padding: unset !important;">
         <img width="25%" height="auto" src="{picurl}" onclick="location='{albumurl}'">
-        <audio id="audio" preload="auto">
+        <audio id="audio" preload="auto" autoplay="{autoplay}">
             <source src="{musicurl}" type="audio/mpeg"/>
             <track src="{lrcurl}">
         </audio>
+        <span id="playicon" class="glyphicon glyphicon-play" aria-hidden="true" onclick="toggleplay();"></span>
     </div>
 </div>

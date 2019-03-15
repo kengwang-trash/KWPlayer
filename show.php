@@ -49,6 +49,6 @@ $all = str_replace('{lrcurl}', "lyric.php?id=$music_id", $all);
 $all = str_replace('{ncurl}', "https://music.163.com/#/song?id=$music_id", $all);
 $alid = $info['songs'][0]['al']['id'];
 $all = str_replace('{albumurl}', "https://music.163.com/#/album?id=$alid", $all);
-$all = str_replace('{isautoplay}', $_GET['autoplay'], $all);
+$all = str_replace('{autoplay}', $_GET['autoplay'], $all);
 echo $all;
 ?>

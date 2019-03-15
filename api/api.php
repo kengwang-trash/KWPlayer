@@ -14,7 +14,8 @@ use Metowolf\Meting;
 
 //调用API并默认为网易云音乐
 $cookie = '';//假如遇到某些限制可以填入你的cookie
-$API = new Meting('netease');
+$platform = 'netease';
+$API = new Meting($platform);
 $API->cookie($cookie);    // Cookie可以自定义
 
 /************* 调用 ********************/

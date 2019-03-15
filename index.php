@@ -34,7 +34,7 @@ $themeinfo = $res->fetchArray(SQLITE3_ASSOC);
     <script src="https://cdn.bootcss.com/mdui/0.4.2/js/mdui.js"></script>
     <script src="https://cdn.bootcss.com/mdui/0.4.2/js/mdui.min.js"></script>
     <!-- Things -->
-    <title>KPlayer - 开源的在线组件播放器</title>
+    <title>KWPlayer - 开源的在线组件播放器</title>
     <!-- 背景 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
@@ -71,7 +71,7 @@ $themeinfo = $res->fetchArray(SQLITE3_ASSOC);
                     <br><br>
                     <div class="first">
                         <p>开源,强大,简单,实用的外链播放器</p>
-                        <div class="web-title">&nbsp;&nbsp;&nbsp;KPlayer</div>
+                        <div class="web-title">&nbsp;&nbsp;&nbsp;KWPlayer</div>
                         <br><br>
                         <hr>
                         <br><br>
@@ -110,7 +110,9 @@ $themeinfo = $res->fetchArray(SQLITE3_ASSOC);
 
     function changed() {
         var id = $("#mid").val();
-        var qian = "<iframe width=290 height=90 scrolling="no" src=\"https://kplayer.tysv.top/show.php?id=";
+        var qian = "<iframe width=290 height=90 scrolling="
+        no
+        " src=\"https://kwplayer.tysv.top/show.php?id=";
         var hou = "\"></iframe>";
         $("#code").val(qian + id + hou);
         $.get('/api/api.php?fun=musicname&p=' + id, function (data) {

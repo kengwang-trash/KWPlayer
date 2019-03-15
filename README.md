@@ -1,8 +1,8 @@
 # 前言
 
-欢迎使用KPlayer！感谢您对于KPlayer的信任与支持！您的引用就是我开发的动力。此项目不谋利，只是为了让更多网站，更多站长方便，快捷，舒适的使用在线外链播放器
+欢迎使用KWPlayer！感谢您对于KWPlayer的信任与支持！您的引用就是我开发的动力。此项目不谋利，只是为了让更多网站，更多站长方便，快捷，舒适的使用在线外链播放器
 
-KPlayer - 开源,强大,简单,实用的外链播放器
+KWPlayer - 开源,强大,简单,实用的外链播放器
 
 # 简介
 
@@ -13,7 +13,7 @@ KPlayer - 开源,强大,简单,实用的外链播放器
 你可以通过很简单的方式进行引用
 
  ```
-<iframe src="https://kplayer.tysv.top/show.php?id=网易云音乐歌曲ID"></iframe>
+<iframe src="https://kwplayer.tysv.top/show.php?id=网易云音乐歌曲ID"></iframe>
 ```
 
  **域名正在处理中，暂时无法引用** 
@@ -22,12 +22,12 @@ KPlayer - 开源,强大,简单,实用的外链播放器
 
 # 主题风格
 
-可在iframe引用的网站加上参数 `theme=主题名称`
+可在iframe 标签src属性 引用的网站加上参数 `theme=主题名称`
 
 例如:
 
 ```
-<iframe src="https://kplayer.tysv.top/show.php?id=网易云音乐歌曲ID&theme=主题名称"></iframe>
+<iframe src="https://kwplayer.tysv.top/show.php?id=网易云音乐歌曲ID&theme=主题名称"></iframe>
 ```
 
 比如添加`&theme=mdui`
