@@ -1,5 +1,4 @@
 <!-- KWPlayer Player includes-->
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
 <style>
     a {
         border: none !important;
@@ -10,13 +9,13 @@
     var playiconclass = "glyphicon glyphicon-play";
     var pauseiconclass = "glyphicon glyphicon-pause";
     if ({autoplay}) {
-        var audio = document.getElementByID("audio");
+        var audio = document.getElementById("audio");
         audio.play();
         judgeplay();
     }
 
     function judgeplay() {
-        var audio = document.getElementByID("audio");
+        var audio = document.getElementById("audio");
         var playicon = document.getElementById("playicon");
         if (audio.paused) {
             playicon.className = playiconclass;
@@ -39,8 +38,18 @@
 </script>
 <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
-<script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-<!-- KWPlayer Lyric Shows -->
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script><!-- KWPlayer Lyric Shows -->
 
 <!-- KWPlayer Player Start -->
 <div id="OnlinePlayer" class="card">
@@ -53,10 +62,13 @@
     </div>
     <div class="card-body" style="padding: unset !important;">
         <img width="25%" height="auto" src="{picurl}" onclick="location='{albumurl}'">
-        <audio id="audio" preload="auto" autoplay="{autoplay}">
-            <source src="{musicurl}" type="audio/mpeg"/>
-            <track src="{lrcurl}">
+        <audio id="audio" preload="auto" autoplay="{autoplay}" src="{musicurl}">
+            您的浏览器过于老旧或未安装Windows播放器组件<br>
+            <a href="https://support.mozilla.org/zh-CN/kb/fix-video-audio-problems-firefox-windows">点我去FireFox文档查看解决方法</a>
+            <track src="{lrcurl}"/>
         </audio>
-        <span id="playicon" class="glyphicon glyphicon-play" aria-hidden="true" onclick="toggleplay();"></span>
+        <span id="playicon" class="glyphicon glyphicon-play"
+              style="font-size:50vh; position: absolute;left: 50%;top: 60%;transform: translate(-50%,-50%);"
+              aria-hidden="true" onclick="toggleplay();"></span>
     </div>
 </div>

@@ -110,9 +110,7 @@ $themeinfo = $res->fetchArray(SQLITE3_ASSOC);
 
     function changed() {
         var id = $("#mid").val();
-        var qian = "<iframe width=290 height=90 scrolling="
-        no
-        " src=\"https://kwplayer.tysv.top/show.php?id=";
+        var qian = "<iframe width=290 height=90 scrolling=\"no\" src=\"https://kwplayer.tysv.top/show.php?id=";
         var hou = "\"></iframe>";
         $("#code").val(qian + id + hou);
         $.get('/api/api.php?fun=musicname&p=' + id, function (data) {

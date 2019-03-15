@@ -32,9 +32,9 @@ var_dump($info);
 //获取用户请求的主题
 if (!isset($_GET['theme'])) $theme = 'default'; else $theme = $_GET['theme'];
 //获取是否存在该主题
-$all = file_get_contents('./theme/'.$theme.'.mptheme');
+$all = file_get_contents('./theme/'.$theme.'.kwptheme');
 if ($all == false) {
-    $all = file_get_contents('./theme/default.mptheme');
+    $all = file_get_contents('./theme/default.kwptheme');
 }
 //替换消息
 $all = str_replace('{audio}', '<audio id="audio" src="'.$url.'">', $all);
